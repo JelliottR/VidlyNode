@@ -32,7 +32,7 @@ app.post('/api/genres', (req, res) => {
 
         const newGenre = {id: genres.length + 1, name};
         genres.push(newGenre);
-        res.send(value);
+        res.send(genres);
                 
     });
 });
@@ -65,7 +65,8 @@ app.delete('/api/genres', (req, res) => {
         let genre = genres.find(genre => genre.id == req.body.id);
         if (!genre) return res.status(404).send("The genre was not found.");
 
-        genres.pop(genre);
+        const index = genres.indexOf(genre);
+        genres.splice(index, 1);
         res.send(genres);
     });
 
