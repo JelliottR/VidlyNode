@@ -1,0 +1,25 @@
+{
+  "name": "completenodejs",
+  "version": "1.0.0",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.16.4",
+    "nodemon": "^1.18.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JelliottR/completenodejs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JelliottR/completenodejs/issues"
+  },
+  "homepage": "https://github.com/JelliottR/completenodejs#readme",
+  "keywords": [],
+  "description": ""
+}
