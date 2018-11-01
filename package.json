@@ -4,6 +4,7 @@
   "main": "app.js",
   "dependencies": {
     "config": "^2.0.1",
+    "debug": "^4.1.0",
     "express": "^4.16.4",
     "helmet": "^3.14.0",
     "morgan": "^1.9.1"

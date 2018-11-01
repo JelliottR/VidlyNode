@@ -1,8 +1,14 @@
 // process.env.NODE_ENV = 'production';
 
+// process.env.DEBUG='app:*';
+// process.env.DEBUG='app:startup,app:db';
+// DEBUG=app:db nodemon app.js
+
 const express = require('express');
 const helmet = require('helmet');
 const morgan = require('morgan');
+const startupDebugger = require('debug')('app:startup');
+const dbDebugger = require('debug')('app:db');
 const app = express();
 
 const config = require('config');
@@ -17,8 +23,11 @@ console.log('Mail Server: ' + config.get('mail.host'));
 
 if(app.get('env') === 'development'){
     app.use(morgan('tiny'));
-    console.log('Morgan enabled...')
+    startupDebugger('Morgan enabled...');
 }
+
+//db work
+dbDebugger('Connected to the database...');
 
 const Joi = require('joi');
 
