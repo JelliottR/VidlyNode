@@ -1,33 +1,23 @@
 // process.env.NODE_ENV = 'production';
 
-// process.env.DEBUG='app:*';
-// process.env.DEBUG='app:startup,app:db';
-// DEBUG=app:db nodemon app.js
-
 const express = require('express');
 const helmet = require('helmet');
 const morgan = require('morgan');
-const startupDebugger = require('debug')('app:startup');
-const dbDebugger = require('debug')('app:db');
+const debug = require('debug')('app:startup');
+const config = require('config');
 const app = express();
 
-const config = require('config');
+app.set('view engine', 'pug');
 
 app.use(express.json())
 app.use(express.urlencoded({extended: true}));
 app.use(express.static('public'));
 app.use(helmet());
 
-console.log('Application Name: ' + config.get('name'));
-console.log('Mail Server: ' + config.get('mail.host'));
-
 if(app.get('env') === 'development'){
     app.use(morgan('tiny'));
-    startupDebugger('Morgan enabled...');
+    debug('Morgan enabled...');
 }
-
-//db work
-dbDebugger('Connected to the database...');
 
 const Joi = require('joi');
 
@@ -37,7 +27,7 @@ let genres = [
 ];
 
 app.get('/', (req, res) => {
-    res.send('Home Page');
+    res.render('index', {title:'Title',message:'get fucked!'});
 });
 
 app.get('/api/genres', (req, res) => {
