@@ -1,10 +1,13 @@
 const express = require('express');
+const helmet = require('helmet');
+const morgan = require('morgan');
 const app = express();
-const log = require('./logger');
 
 app.use(express.json())
 app.use(express.urlencoded({extended: true}));
 app.use(express.static('public'));
+app.use(helmet());
+app.use(morgan('tiny'));
 
 const Joi = require('joi');
 
