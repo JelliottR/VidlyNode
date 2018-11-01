@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
+const log = require('./logger');
+
 app.use(express.json())
+app.use(log);
 
 const Joi = require('joi');
 
