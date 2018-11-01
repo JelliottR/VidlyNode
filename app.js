@@ -1,14 +1,19 @@
+// process.env.NODE_ENV = 'production';
+
 const express = require('express');
 const helmet = require('helmet');
 const morgan = require('morgan');
 const app = express();
 
-// app.set('env', 'production');
+const config = require('config');
 
 app.use(express.json())
 app.use(express.urlencoded({extended: true}));
 app.use(express.static('public'));
 app.use(helmet());
+
+console.log('Application Name: ' + config.get('name'));
+console.log('Mail Server: ' + config.get('mail.host'));
 
 if(app.get('env') === 'development'){
     app.use(morgan('tiny'));
