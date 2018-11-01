@@ -3,7 +3,8 @@ const app = express();
 const log = require('./logger');
 
 app.use(express.json())
-app.use(log);
+app.use(express.urlencoded({extended: true}));
+app.use(express.static('public'));
 
 const Joi = require('joi');
 
@@ -17,7 +18,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api/genres', (req, res) => {
-   res.json(genres) 
+   res.json(genres);
 });
 
 app.post('/api/genres', (req, res) => {
