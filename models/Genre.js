@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const Joi = require('joi');
 
 const genreSchema = {
-    _id: mongoose.Schema.Types.ObjectId,
     name: {
         type: String,
         required: 'A genre must have a name',
