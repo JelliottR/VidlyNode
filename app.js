@@ -32,6 +32,11 @@ if(app.get('env') === 'development'){
     debug('Morgan enabled...');
 }
 
+if (!config.get('jwtPrivateKey')){
+    console.error('FATAL ERROR: jwtPrivateKey is not defined.');
+    process.exit(1);
+}
+
 mongoose.connect('mongodb://localhost/Vidly', { useNewUrlParser: true })
     .then(console.log('Connected to MongoDB'))
     .catch(err => console.error(err));
