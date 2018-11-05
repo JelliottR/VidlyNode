@@ -7,7 +7,11 @@ process.on('unhandledRejection', (ex) => {
 });
 
 winston.add(new winston.transports.File({ filename: 'logfile.log', level: 'info' }));
-winston.add(new winston.transports.MongoDB({ db: 'mongodb://localhost/Vidly', options: { useNewUrlParser: true }, level: 'info' }));
+// winston.add(new winston.transports.MongoDB({ db: 'mongodb://localhost/Vidly', options: { useNewUrlParser: true }, level: 'info' }));
+winston.add(new winston.transports.Console({ level: 'info' }));
 
 
-winston.exceptions.handle(new winston.transports.File({ filename: 'uncaughtExceptions.log' }));
+winston.exceptions.handle(
+    new winston.transports.File({ filename: 'uncaughtExceptions.log' }),
+    new winston.transports.Console()
+);
