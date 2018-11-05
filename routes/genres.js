@@ -5,12 +5,12 @@ const auth = require('../middleware/auth');
 const admin = require('../middleware/admin');
 
 router.get('/', async (req, res) => {
+    throw new Error('Could not get the genres.');
     const genres = await Genre.find().sort('name');
     res.send(genres);
 });
 
 router.post('/', auth, async (req, res) => {
-
     const { error } = validate(req.body);
     if (error) return res.status(400).send(error.details[0].message);
 

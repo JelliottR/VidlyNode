@@ -1,5 +1,8 @@
 // process.env.NODE_ENV = 'production';
 
+require('express-async-errors');
+const winston = require('winston');
+const error = require('./middleware/error');
 const helmet = require('helmet');
 const morgan = require('morgan');
 const debug = require('debug')('app:startup');
@@ -14,6 +17,9 @@ const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
 
+winston.add(new winston.transports.File( {filename: 'logfile.log'} ));
+// winston.add(new winston.transports.Console({filename: 'logfile.log'}));
+
 app.set('view engine', 'pug');
 
 app.use(express.json())
@@ -26,6 +32,9 @@ app.use('/api/movies', movies);
 app.use('/api/rentals', rentals);
 app.use('/api/users', users);
 app.use('/api/auth', auth);
+
+app.use(error);
+
 
 if(app.get('env') === 'development'){
     app.use(morgan('tiny'));
