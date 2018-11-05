@@ -2,6 +2,7 @@
 
 require('express-async-errors');
 const winston = require('winston');
+require('winston-mongodb');
 const error = require('./middleware/error');
 const helmet = require('helmet');
 const morgan = require('morgan');
@@ -18,7 +19,7 @@ const express = require('express');
 const app = express();
 
 winston.add(new winston.transports.File( {filename: 'logfile.log'} ));
-// winston.add(new winston.transports.Console({filename: 'logfile.log'}));
+winston.add(new winston.transports.MongoDB({db: 'mongodb://localhost/Vidly'}));
 
 app.set('view engine', 'pug');
 
