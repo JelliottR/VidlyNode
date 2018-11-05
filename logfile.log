@@ -1,14 +1,33 @@
-{"level":"error","message":"Could not get the genres."}
-{"level":"error","message":"Could not get the genres."}
-{"level":"error","message":"Could not get the genres."}
-{"level":"error","message":"Could not get the genres."}
-{"level":"error","message":"Could not get the genres."}
-{"level":"error","message":"Could not get the genres."}
-{"level":"info","message":"Could not get the genres."}
-{"level":"info","message":"Could not get the genres."}
-{"level":"error","message":"Could not get the genres."}
-{"level":"info","message":"Could not get the genres."}
-{"level":"error","message":"Something failed during startup."}
-{"level":"error","message":"failed."}
-{"level":"error","message":"failed."}
-{"level":"error","message":"failed."}
+{"message":"Connected to MongoDB","level":"info"}
+{"message":"Connected to MongoDB","level":"info"}
+{"message":"Connected to MongoDB","level":"info"}
+{"message":"Connected to MongoDB","level":"info"}
+{"message":"Connected to MongoDB","level":"info"}
+{"message":"Connected to MongoDB","level":"info"}
+{"message":"Connected to MongoDB","level":"info"}
+{"message":"Connected to MongoDB","level":"info"}
+{"message":"Connected to MongoDB","level":"info"}
+{"message":"Connected to MongoDB","level":"info"}
+{"message":"Connected to MongoDB","level":"info"}
+{"message":"Connected to MongoDB","level":"info"}
+{"message":"Connected to MongoDB","level":"info"}
+{"message":"Connected to MongoDB","level":"info"}
+{"message":"Connected to MongoDB","level":"info"}
+{"message":"Connected to MongoDB","level":"info"}
+{"message":"Connected to MongoDB","level":"info"}
+{"message":"Connected to MongoDB","level":"info"}
+{"message":"Connected to MongoDB","level":"info"}
+{"message":"Connected to MongoDB","level":"info"}
+{"message":"Connected to MongoDB","level":"info"}
+{"message":"Connected to MongoDB","level":"info"}
+{"meta":{},"level":"error","message":"Could not get the genres."}
+{"meta":{},"level":"error","message":"Could not get the genres."}
+{"message":"Connected to MongoDB","level":"info"}
+{"meta":{},"level":"error","message":"Could not get the genres."}
+{"meta":{},"level":"error","message":"Could not get the genres."}
+{"meta":{},"level":"error","message":"Could not get the genres."}
+{"meta":{},"level":"error","message":"Could not get the genres."}
+{"message":"Connected to MongoDB","level":"info"}
+{"message":"Connected to MongoDB","level":"info"}
+{"message":"Connected to MongoDB","level":"info"}
+{"message":"Connected to MongoDB","level":"info"}
