@@ -1,7 +1,7 @@
 const winston = require('winston');
 
 module.exports = (err, req, res, next) => {
-    winston.err(err.message, err);
+    winston.error(err.message, err);
     // error
     // warn
     // info

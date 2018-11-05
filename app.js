@@ -18,10 +18,17 @@ const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
 
+process.on('uncaughtException', (ex)=>{
+    console.log('UNCAUGHT EXCEPTION');
+    winston.error(ex.message, ex)
+})
+
 winston.add(new winston.transports.File( {filename: 'logfile.log'} ));
-winston.add(new winston.transports.MongoDB({db: 'mongodb://localhost/Vidly'}));
+winston.add(new winston.transports.MongoDB({db: 'mongodb://localhost/Vidly', level:'error'}));
 
 app.set('view engine', 'pug');
+
+throw new Error('Something failed during startup.');
 
 app.use(express.json())
 app.use(express.urlencoded({extended: true}));
