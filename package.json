@@ -19,11 +19,13 @@
     "winston-mongodb": "^4.0.3"
   },
   "devDependencies": {
+    "jest": "^23.6.0",
     "joi": "^14.0.3",
-    "nodemon": "^1.18.5"
+    "nodemon": "^1.18.5",
+    "supertest": "^3.3.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --watchAll --verbose",
     "debug": "node app.js --debug"
   },
   "repository": {
