@@ -5,13 +5,13 @@ const genreSchema = {
     name: {
         type: String,
         required: 'A genre must have a name',
-        min: 2
+        min: 5
     }
 };
 
 function validateGenre(genre) {
     const schema = {
-        name: Joi.string().min(3).required()
+        name: Joi.string().min(5).max(50).required()
     }
     return Joi.validate(genre, schema);
 };
