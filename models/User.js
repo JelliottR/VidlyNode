@@ -1,4 +1,3 @@
-const config = require("config");
 const jwt = require("jsonwebtoken");
 const Joi = require("joi");
 const mongoose = require("mongoose");
@@ -34,7 +33,7 @@ userSchema.methods.generateAuthToken = function() {
       email: this.email,
       isAdmin: this.isAdmin
     },
-    config.get("jwtPrivateKey")
+    process.env.EXPRESS_APP_JWT_PRIVATE_KEY
   );
   return token;
 };

@@ -1,7 +1,6 @@
 const { Genre } = require("./models/genre");
 const { Movie } = require("./models/movie");
 const mongoose = require("mongoose");
-const config = require("config");
 
 const data = [
   {
@@ -39,12 +38,12 @@ const data = [
 ];
 
 async function seed() {
-  await mongoose.connect(config.get("db"));
+  await mongoose.connect(process.env.EXPRESS_APP_DB_URL);
 
   await Movie.deleteMany({});
   await Genre.deleteMany({});
 
-  for (let genre of data) {
+  for (const genre of data) {
     const { _id: genreId } = await new Genre({ name: genre.name }).save();
     const movies = genre.movies.map(movie => ({
       ...movie,
