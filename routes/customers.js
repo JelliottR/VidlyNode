@@ -1,16 +1,18 @@
 const { Customer, validate } = require("../models/customer");
 const auth = require("../middleware/auth");
+const isAdmin = require("../middleware/admin");
 const express = require("express");
+
 const router = express.Router();
 
-router.get("/", auth, async (req, res) => {
+router.get("/", auth, isAdmin, async (req, res) => {
   const customers = await Customer.find()
     .select("-__v")
     .sort("name");
   res.send(customers);
 });
 
-router.post("/", auth, async (req, res) => {
+router.post("/", auth, isAdmin, async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
@@ -24,7 +26,7 @@ router.post("/", auth, async (req, res) => {
   res.send(customer);
 });
 
-router.put("/:id", auth, async (req, res) => {
+router.put("/:id", auth, isAdmin, async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
@@ -46,7 +48,7 @@ router.put("/:id", auth, async (req, res) => {
   res.send(customer);
 });
 
-router.delete("/:id", auth, async (req, res) => {
+router.delete("/:id", auth, isAdmin, async (req, res) => {
   const customer = await Customer.findByIdAndRemove(req.params.id);
 
   if (!customer)
@@ -57,7 +59,7 @@ router.delete("/:id", auth, async (req, res) => {
   res.send(customer);
 });
 
-router.get("/:id", auth, async (req, res) => {
+router.get("/:id", auth, isAdmin, async (req, res) => {
   const customer = await Customer.findById(req.params.id).select("-__v");
 
   if (!customer)

@@ -1,4 +1,4 @@
-export default (req, res, next) => {
+module.exports = (req, res, next) => {
   // 401 Unauthorized
   // 403 Forbidden
 
