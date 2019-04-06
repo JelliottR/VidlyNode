@@ -1,6 +1,6 @@
+const mongoose = require("mongoose");
 const { Genre } = require("./models/genre");
 const { Movie } = require("./models/movie");
-const mongoose = require("mongoose");
 
 const data = [
   {
